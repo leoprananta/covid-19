@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <title>COVID-19</title>
+    <title>i-covindo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,105 +32,174 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-virus"></i> COVID-19</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-virus"></i>I-Covindo</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#category">Info Kasus</a>
+              <a class="nav-link js-scroll-trigger" href="#category">Jumlah Kasus</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#prov">Provinsi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Information</a>
+              <a class="nav-link js-scroll-trigger" href="#berita">Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#tips">Tips</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Tentang</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Banner -->
+
     <header class="masthead text-center d-flex">
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-7 mt-5 mx-auto">
+      <div class="container my-auto p-3">
+        <div class="row text-dark">
+          <div class="col-lg-8 mt-5 mx-auto">
             <h1>
-              <strong>COVID-19<br> Unofficial Website</strong>
+              <strong>i-Covindo<br></strong>
             </h1>
-            <hr class="sr-contact-2">
+            <h2>
+              Informasi Corona Virus (COVID-19) Indonesia
+            </h2>
+            <hr class="sr-contact-2 pink">
             <a class="btn btn-primary btn-xl js-scroll-trigger col-md-4" href="#category" id="get">Info Terbaru</a>
           </div>
-          <div class="col-lg-5 mx-auto text-center p-5">
-            <img src="img/dokter.png" alt="" height="310" width="410">
+          <div class="col-lg-4 mx-auto text-center p-3">
+            <img src="img/dokter.png" alt="" height="300" width="340">
           </div>
         </div>
       </div>
     </header>
 
-     <section id="category" class="p-5 bg-info">
+    <!-- Jumlah Kasus -->
+
+     <section id="category" class="p-5 bg-info mb-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-white"><strong>Jumlah Kasus Covid-19 di Indonesia</strong></h2>
+            <h2 class="section-heading text-white"><strong>Jumlah Kasus</strong> COVID-19 di Indonesia</h2>
             <hr class="my-4 light">
           </div>
         </div>
       </div>
       <div class="container">
-        <div class="row justify-content-center" id="data1">
-          
-          
+        <div class="row justify-content-center" id="dataKasus">
         </div>
-        <p class="text-white mt-4" id="date"></p>
+        <p class="text-white mt-4 mb-5" id="date"></p>
+      </div>
     </section>
+
+    <!-- Provinsi -->
     
-    <section id="prov" class="masthead">
+    <section id="prov" class="p-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-white"><strong>Kasus Per Provinsi</strong></h2>
+            <h2 class="section-heading text-dark">Kasus Per<strong> Provinsi</strong></h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center" id="dataProvinsi">
+        </div>
+      </div>
+    </section>
+
+    <!-- Berita -->
+
+    <section id="berita" class="hotline p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center text-white">
+            <h2 class="section-heading"><strong>Berita</strong> Terbaru</h2>
             <hr class="my-4 light">
           </div>
         </div>
       </div>
       <div class="container">
-        <div class="row justify-content-center" id="dataProv">
-
-        
+        <div class="row justify-content-center" id="dataBerita">
+          
         </div>
+      </div>
     </section>
 
-    <section id="contact" class="bg-info">
+    <!-- Tips -->
+
+    <section id="tips" class="p-5 mb-5">
+      <div class="container">
+        <div class="row text-dark">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading"><strong>Tips</strong> dari WHO</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col md-5">
+            <div class="row" id="ytNamePict">
+              <!-- Name & Pict -->
+            </div>
+
+            <div class="row">
+              <!-- <div class="g-ytsubscribe" data-channel="WHO"></div> -->
+            </div>
+
+            <div class="row mt-3 pb-3">
+              <div class="col" id="ytVideo">
+                <!-- Video -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+
+    <section id="contact" class="bg-info p-5">
       <div class="container text-white">
         <div class="row">
-          <div class="col-lg-5 mx-auto text-center">
-            <img src="img/kopi.png" alt="" height="430" width="360">
+          <div class="col-lg-5 mx-auto text-center p2">
+            <img src="img/kopi.png" alt="" height="380" width="310">
           </div>
-          <div class="col-lg-7 mx-auto p-5">
+          <div class="col-lg-7 mx-auto">
             <div class="row">
               <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading">Information</h2>
+                <h2 class="section-heading"><strong>Tentang</strong> Aplikasi</h2>
                 <hr class="light my-4">
                 <p class="mb-5">Web ini dibuat hanya sebagai alternatif pilihan dari sekian banyak web yang menyediakan informasi tentang Virus COVID-19 di Indonesia. Semoga wabah ini cepat berakhir di seluruh dunia, terutama di Negara Indonesia, aamin. Stay safe guys.. <br> #dirumahaja</p>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 ml-auto text-center">
-                <i class="fas fa-globe fa-3x mb-3 sr-contact-1"></i>
+                <img src="img/globe.png" height="70" width="70" alt="">
                 <p>
-                  <a class="text-white" href="https://covid19.kemkes.go.id/">https://covid19.kemkes.go.id/</a>
+                  Pranala Penting
                   <hr class="light">
-                  Kemenkes Website
+                  <a class="text-white" href="https://covid19.kemkes.go.id/" target="_blank">Kemenkes</a><br>
+                  <a class="text-white" href="https://kominfo.go.id/content/all/virus_corona" target="_blank">Kominfo</a><br>
+                  <a class="text-white" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank">WHO</a>
                 </p>
               </div>
               <div class="col-lg-6 mr-auto text-center">
-                <i class="fas fa-database fa-3x mb-3 sr-contact-2"></i>
+                <img src="img/db.png" height="67" width="67" alt="" class="p-1">
                 <p>
-                  <a class="text-white" href="https://github.com/mathdroid/covid-19-api">https://github.com/mathdroid</a>
-                  <hr class="light">
                   Data Source
+                  <hr class="light">
+                  <a class="text-white" href="https://github.com/mathdroid/covid-19-api" target="_blank">Github Mathdroid</a><br>
+                  <a class="text-white" href="https://newsapi.org" target="_blank">NewsAPI.org</a><br>
+                  <a class="text-white" href="https://youtube.com" target="_blank">Youtube</a>
                 </p>
               </div>
             </div>
@@ -149,6 +219,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
 
     <script type="text/javascript" src="js/api.js"></script>
     <script>
@@ -160,8 +231,8 @@
       var jam = d.getHours();
       var menit = d.getMinutes();
       var detik = d.getSeconds();
-      var tbt = tgl +" "+ bln +" "+ thn +" "+ jam +":"+ menit +":"+ detik;
-      document.getElementById("date").innerHTML = "Per : " + tbt;
+      var tbt = tgl +" "+ bln +" "+ thn ;
+      document.getElementById("date").innerHTML = "Data per " + tbt;
       </script>
   </body>
 

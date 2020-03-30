@@ -24,6 +24,10 @@ hr.light {
   border-color: #fff;
 }
 
+hr.pink {
+  border-color: #e7557f;
+}
+
 a {
   color: #615190;
   -webkit-transition: all 0.2s;
@@ -175,18 +179,10 @@ img::-moz-selection {
   }
 }
 
-section.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/korona.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-
 section.hotline {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/hotline.jpg");
+  background-image: url("../img/berita.jpg");
   background-position: center center;
   background-size: cover;
 }
