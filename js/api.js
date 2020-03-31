@@ -5,7 +5,7 @@ getProv();
 
 function getWHO(){
 	var getYtInfo = {
-		"url": "https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=AIzaSyCeBIdcUARl8YtgIalG8Or--EU1Sny5VaA",
+		"url": "https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=[YOUR_KEY]",
 		"method": "GET",
 		"timeout": 0,
 	  };
@@ -35,7 +35,7 @@ function getWHO(){
 
 function getNews(){
 	var getNews = {
-		"url": "https://newsapi.org/v2/top-headlines?q=COVID&country=id&apiKey=2be97ad3cf49463db15280f491a8d91e&pageSize=9&page=1",
+		"url": "https://newsapi.org/v2/top-headlines?q=COVID&country=id&apiKey=[YOURKEY]&pageSize=9&page=1",
 		"method": "GET",
 		"timeout": 0,
 	  };
