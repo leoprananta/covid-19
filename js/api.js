@@ -1,7 +1,7 @@
-getCovid();
-getProv();
 getWHO();
 getNews();
+getCovid();
+getProv();
 
 function getWHO(){
 	var getYtInfo = {
@@ -24,31 +24,12 @@ function getWHO(){
 					<h4><strong>`+ response.items[0].snippet.title +`</strong></h4>
 				</a>
 				<div class="row">
-					<p class="mr-3 ml-3"><strong>`+ response.items[0].statistics.subscriberCount +` Subscriber, `+ response.items[0].statistics.videoCount +` Videos</strong></p>
+					<p class="mr-3 ml-3"><strong>`+ response.items[0].statistics.subscriberCount +` Subscriber</strong></p>
+					<p class="mr-3 ml-3"><strong>`+ response.items[0].statistics.videoCount +` Videos</strong></p>
 				</div>
 			</div>
 		`);
 	  });
-
-	  var getYtVideo = {
-		"url": "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCeBIdcUARl8YtgIalG8Or--EU1Sny5VaA&channelId=UC07-dOwgza1IguKA86jqxNA&maxResults=50&order=date&part=snippet",
-		"method": "GET",
-		"timeout": 0,
-	  };
-	  
-	  $.ajax(getYtVideo).done(function (response) {
-		//console.log(response);
-
-		$('#ytVideo').append(`
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/`+ response.items[39].id.videoId +`?rel=0" allowfullscreen></iframe>
-	  		</div>
-		`);
-	  });
-
-// $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBsc8M2ayg1lDAmP0GlCDUhO5Xk0V6N5bM&channelId=UCLpJLHPO9kJN1f4K_Y3Xu1g&maxResults=4&order=date&part=snippet';
-// $result = get_curl($urlLatestVideo);
-// $lastVideo = $result['items'][3]['id']['videoId'];
 }
 
 
@@ -89,8 +70,6 @@ function getNews(){
 
 function getCovid(){
 
-	$('#list').html('');
-
 	$.ajax({
 		url: 'http://indonesia-covid-19.mathdro.id/api/',
     	type: 'GET',
@@ -108,8 +87,8 @@ function getCovid(){
 
 		  	</div>
 				<div class="col-md-6">
-					<div class="card mb-3 p-2 sr-icon-3">
-						<div class="card-body">
+					<div class="mb-3 p-2 sr-icon-3">
+						<div class="shadow-lg p-4 bg-white rounded">
 							<h1 class="text-center text-primary"><strong>`+ result.jumlahKasus +`</strong></h1>
 							<p class="card-text text-center">Jumlah Kasus</p>
 						</div>
@@ -119,8 +98,8 @@ function getCovid(){
 
 			</div>
 				<div class="col-md-6">
-					<div class="card mb-3 p-2 sr-icon-3">
-						<div class="card-body">
+					<div class="mb-3 p-2 sr-icon-3">
+						<div class="shadow-lg p-4 bg-white rounded">
 							<h1 class="text-center text-warning"><strong>`+ result.perawatan +`</strong></h1>
 							<p class="card-text text-center">Dirawat</p>
 						</div>
@@ -130,8 +109,8 @@ function getCovid(){
 
 			</div>
 				<div class="col-md-6">
-					<div class="card mb-3 p-2 sr-icon-3">
-						<div class="card-body">
+					<div class="mb-3 p-2 sr-icon-3">
+						<div class="shadow-lg p-4 bg-white rounded">
 							<h1 class="text-center text-success"><strong>`+ result.sembuh +`</strong></h1>
 							<p class="card-text text-center">Sembuh</p>
 						</div>
@@ -141,8 +120,8 @@ function getCovid(){
 
 			</div>
 				<div class="col-md-6">
-					<div class="card mb-3 p-2 sr-icon-3">
-						<div class="card-body">
+					<div class="mb-3 p-2 sr-icon-3">
+						<div class="shadow-lg p-4 bg-white rounded">
 							<h1 class="text-center text-danger"><strong>`+ result.meninggal +`</strong></h1>
 							<p class="card-text text-center">Meninggal</p>
 						</div>
@@ -150,6 +129,60 @@ function getCovid(){
 				</div>
 			</div>
 			`);
+
+
+			$(document).ready(function () {
+				chart = new Highcharts.chart('piecart', {
+					chart: {
+						backgroundColor: '#615190',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false,
+						type: 'pie'
+					},
+				title: {
+					  text: '',
+				  },
+				  tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				accessibility: {
+					point: {
+						valueSuffix: '%'
+					}
+				},
+				plotOptions: {
+					pie: {
+						borderColor: 'none',
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							color: 'white',
+							style: {
+								textOutline: 'none',
+								fontSize: '14'
+							},
+							enabled: true,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+						}
+					}
+				},
+				series: [{
+					  type: 'pie',
+					  name: 'Total',
+					  data: [
+						  ['Dirawat', result.perawatan],
+						  ['Meninggal', result.meninggal],
+						  {
+							name: 'Sembuh',
+							y: result.sembuh,
+							sliced: true,
+							selected: true
+						  },
+					  ]
+				  }]
+			  });
+			});
 			}
 		}
 	});
@@ -172,8 +205,8 @@ function getProv(){
 				$.each(provinsi, function(i, data){
 					$('#dataProvinsi').append(`
 					<div class="col-md-4">
-						<div class="card mb-4 p-2 sr-icon-1">
-						<div class="card-body">
+						<div class="mb-4 p-2 sr-icon-1">
+						<div class="shadow p-3 mb-5 bg-white rounded">
 							<h5 class="card-title text-center text-dark"><img src="img/location.png" height="32" width="20" alt="" class="mr-1"><strong> `+ data.provinsi +`</strong></h5>
 							<div class="row mt-4">
 								<div class="col">

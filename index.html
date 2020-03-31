@@ -15,7 +15,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
 
@@ -92,9 +91,16 @@
         </div>
       </div>
       <div class="container">
-        <div class="row justify-content-center" id="dataKasus">
+        <div class="row">
+          <div class="col-lg-5 justify-content-center" id="piecart" style="min-width: 200px; height: 380px; margin: 0 auto">
+
+          </div>
+          <div class="col-lg-7 p-5">
+            <div class="row justify-content-center" id="dataKasus">
+            </div>
+            <p class="text-white mt-4 mb-5" id="date"></p>
+          </div>
         </div>
-        <p class="text-white mt-4 mb-5" id="date"></p>
       </div>
     </section>
 
@@ -121,7 +127,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center text-white">
-            <h2 class="section-heading"><strong>Berita</strong> Terbaru</h2>
+            <h2 class="section-heading"><strong>Berita</strong> Terbaru COVID-19</h2>
             <hr class="my-4 light">
           </div>
         </div>
@@ -157,7 +163,9 @@
 
             <div class="row mt-3 pb-3">
               <div class="col" id="ytVideo">
-                <!-- Video -->
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1APwq1df6Mw?rel=0" allowfullscreen></iframe>
+                </div>
               </div>
             </div>
           </div>
@@ -170,15 +178,18 @@
     <section id="contact" class="bg-info p-5">
       <div class="container text-white">
         <div class="row">
-          <div class="col-lg-5 mx-auto text-center p2">
-            <img src="img/kopi.png" alt="" height="380" width="310">
+          <div class="col-lg-5 mx-auto text-center p-2 mt-5">
+            <img src="img/kopi.png" alt="" height="350" width="280">
           </div>
           <div class="col-lg-7 mx-auto">
             <div class="row">
               <div class="col-lg-8 mx-auto text-center">
                 <h2 class="section-heading"><strong>Tentang</strong> Aplikasi</h2>
                 <hr class="light my-4">
-                <p class="mb-5">Web ini dibuat hanya sebagai alternatif pilihan dari sekian banyak web yang menyediakan informasi tentang Virus COVID-19 di Indonesia. Semoga wabah ini cepat berakhir di seluruh dunia, terutama di Negara Indonesia, aamin. Stay safe guys.. <br> #dirumahaja</p>
+                <p class="mb-5">Website ini menyediakan informasi tentang jumlah kasus COVID-19 di Negara Indonesia, baik secara global maupun per provinsi. Selain itu web ini juga menyediakan berita terbaru tentang virus COVID-19 di Indonesia, dan juga video tips dari World Health organization(<strong>WHO</strong>) tentang bagaimana perlindugan yang baik dan benar terhadap diri kita sendiri. Semoga wabah ini cepat berakhir di seluruh dunia, terutama di Indonesia. Selalu jaga kebersihan, dan jangan lupa cuci tangan ya.. <br>
+                  <br><a href="https://twitter.com/hashtag/staysafe"class="text-white" target="_blank">#staysafe</a>
+                  <a href="https://twitter.com/hashtag/dirumahaja"class="text-white" target="_blank">#dirumahaja</a>
+                </p>
               </div>
             </div>
             <div class="row">
@@ -195,7 +206,7 @@
               <div class="col-lg-6 mr-auto text-center">
                 <img src="img/db.png" height="67" width="67" alt="" class="p-1">
                 <p>
-                  Data Source
+                  Sumber data
                   <hr class="light">
                   <a class="text-white" href="https://github.com/mathdroid/covid-19-api" target="_blank">Github Mathdroid</a><br>
                   <a class="text-white" href="https://newsapi.org" target="_blank">NewsAPI.org</a><br>
@@ -222,8 +233,9 @@
     <script src="https://apis.google.com/js/platform.js"></script>
 
     <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
     <script>
-      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
       var d = new Date();
       var tgl = d.getDate();
       var bln = months[d.getMonth()];
@@ -234,6 +246,7 @@
       var tbt = tgl +" "+ bln +" "+ thn ;
       document.getElementById("date").innerHTML = "Data per " + tbt;
       </script>
+
   </body>
 
 </html>
